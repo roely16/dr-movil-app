@@ -1,14 +1,14 @@
 <template>
 	<v-app-bar height="100" color="#fff" elevation="0">
 		<v-toolbar-title>
-			<v-btn small text>
+			<v-btn @click="goBack()" v-if="isGoBack" small text>
 				<v-icon>
 					mdi-arrow-left
 				</v-icon>
 			</v-btn>
-			<span class="text-h5">
+			<span class="text-h5 font-weight-light">
 				<strong>
-					Lista de Pacientes
+					{{ barTitle }}
 				</strong>
 			</span>
 		</v-toolbar-title>
@@ -47,6 +47,19 @@
 						title: 'Salir'
 					}
 				]
+			}
+		},
+		methods: {
+			goBack(){
+				this.$router.back()
+			}
+		},
+		computed: {
+			isGoBack: function(){
+				return this.$route.meta.goBack
+			},
+			barTitle: function(){
+				return this.$route.meta.title
 			}
 		}
 	}
