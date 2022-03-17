@@ -1,0 +1,53 @@
+<template>
+	<div>
+		<v-row style="background-color: white" class="mt-2">
+			<v-col cols="3">
+				<v-text-field type="number" label="Gestas" outlined hide-details class="elevation-0"></v-text-field>
+			</v-col>
+			<v-col cols="3">
+				<v-text-field type="number" label="Partos" outlined hide-details class="elevation-0"></v-text-field>
+			</v-col>
+			<v-col cols="3">
+				<v-text-field type="number" label="Abortos" outlined hide-details class="elevation-0"></v-text-field>
+			</v-col>
+			<v-col cols="3">
+				<v-text-field type="number" label="Hijos Vivos" outlined hide-details class="elevation-0"></v-text-field>
+			</v-col>
+			<v-col cols="3">
+				<v-text-field type="number" label="Hijos Muertos" outlined hide-details class="elevation-0"></v-text-field>
+			</v-col>
+			<v-col cols="3">
+				<v-text-field type="number" label="FUR" outlined hide-details class="elevation-0"></v-text-field>
+			</v-col>
+			<v-col cols="3">
+				<v-text-field type="number" label="CSTP" outlined hide-details class="elevation-0"></v-text-field>
+			</v-col>
+			
+			
+		</v-row>
+
+		<v-divider class="mt-10 mb-10"></v-divider>
+		
+		<v-row>
+			<v-col cols="12">
+				<v-textarea rows="6" no-resize label="Otros" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+			</v-col>
+		</v-row>
+	</div>
+</template>
+
+<style scoped>
+
+	.v-text-field--outlined >>> fieldset {
+		border-color: rgba(228, 227, 227, 0.986);
+		border-radius: 20px;
+		background-color: #F9FAFF;
+	}
+
+</style>
+
+<script>
+	export default {
+
+	}
+</script>
