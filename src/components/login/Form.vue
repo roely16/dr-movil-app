@@ -18,17 +18,17 @@
 					</v-row>
 					<v-row justify="center">
 						<v-col cols="7">
-							<v-text-field append-icon="mdi-at" hide-details label="Email" outlined class="rounded-md"></v-text-field>
+							<v-text-field type="email" append-icon="mdi-at" hide-details label="Email" outlined class="rounded-md"></v-text-field>
 						</v-col>
 					</v-row>
 					<v-row justify="center">
 						<v-col cols="7">
-							<v-text-field append-icon="mdi-lock" hide-details label="Password" outlined></v-text-field>
+							<v-text-field type="password" append-icon="mdi-lock" hide-details label="Password" outlined></v-text-field>
 						</v-col>
 					</v-row>
 					<v-row justify="center">
 						<v-col cols="7">
-							<v-btn color="#2784FF" dark large elevation="0" block>Login</v-btn>
+							<v-btn @click="doLogin()" color="#2784FF" dark large elevation="0" block>Login</v-btn>
 						</v-col>
 					</v-row>
 				</v-form>
@@ -59,6 +59,11 @@
 
 <script>
 	export default {
-
+		methods: {
+			doLogin(){
+				console.log('go to home')
+				this.$router.push({ name: 'home' })
+			}
+		}
 	}
 </script>

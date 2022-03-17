@@ -18,16 +18,36 @@
 		<v-btn x-large class="mr-4" icon>
 			<v-icon>mdi-bell</v-icon>
 		</v-btn>
-		<v-avatar>
-			<v-img :src="require('@/assets/img/medical-care.png')"></v-img>
-		</v-avatar>
-
+		<v-menu offset-y>
+			<template v-slot:activator="{ on, attrs }">
+				<v-avatar v-bind="attrs" v-on="on">
+					<v-img :src="require('@/assets/img/medical-care.png')"></v-img>
+				</v-avatar>
+			</template>
+			<v-list>
+				<v-list-item
+					v-for="(item, index) in profile_menu"
+					:key="index"
+				>
+					<v-list-item-title>{{ item.title }}</v-list-item-title>
+				</v-list-item>
+			</v-list>
+		</v-menu>
+		
 	</v-app-bar>
 </template>
 
 <script>
 	export default {
-		name: 'Sidebar',
-		
+		name: 'appbar',
+		data(){
+			return{
+				profile_menu: [
+					{
+						title: 'Salir'
+					}
+				]
+			}
+		}
 	}
 </script>
