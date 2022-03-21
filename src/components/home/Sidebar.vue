@@ -58,7 +58,7 @@
 		return {
 			options: [
 				{ title: 'Pacientes', icon: 'mdi-clipboard', to: 'patients' },
-				{ title: 'Consultas', icon: 'mdi-account-group' },
+				{ title: 'Referidos', icon: 'mdi-account-group', to: 'referrals' },
 				{ title: 'Reportes', icon: 'mdi-chart-bar' },
 			],
 			bottom_options: [

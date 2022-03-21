@@ -6,15 +6,6 @@
 	</v-row>
 </template>
 
-<style>
-	/* .background{
-		background: linear-gradient(-45deg, #8AEDF6, #60A2F5, #8AEDF6, #60A2F5);
-		background-size: 400% 400%;
-		animation: gradient 15s ease infinite;
-		height: 100vh;
-	} */
-</style>
-
 <script>
 
 	import Lottie from 'vue-lottie';

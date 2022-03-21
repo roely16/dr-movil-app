@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Patients from '../views/Patients.vue'
+import Referrals from '../views/Referrals.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,15 @@ const routes = [
 				meta: {
 					goBack: true,
 					title: 'Lista de Pacientes'
+				}
+			},
+			{
+				path: '/home/referrals',
+				name: 'referrals',
+				component: Referrals,
+				meta: {
+					goBack: true,
+					title: 'Referidos'
 				}
 			}
 		]

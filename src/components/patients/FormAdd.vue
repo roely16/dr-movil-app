@@ -42,7 +42,7 @@
 		<v-card-actions>
 			<v-row dense>
 				<v-col>
-					<v-btn class="mr-4" elevation="0" large color="primary">
+					<v-btn class="mr-4" elevation="0" large dark color="#2784FF">
 						Guardar
 					</v-btn>
 					<v-btn @click="setShow(false)" elevation="0" large color="grey lighten-2">

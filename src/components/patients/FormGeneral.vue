@@ -34,6 +34,9 @@
 				<v-select label="Sexo" :items="sexo" item-text="label" item-value="value" outlined hide-details class="elevation-0" ></v-select>
 			</v-col>
 			<v-col cols="12">
+				<v-text-field v-model="form.nombre_paciente" label="Dirección del paciente" outlined hide-details class="elevation-0 rounded-lg"></v-text-field>
+			</v-col>
+			<v-col cols="12">
 				<v-textarea rows="6" no-resize label="Historia de la enfermedad actual" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 			</v-col>
 		</v-row>

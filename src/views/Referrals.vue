@@ -4,26 +4,17 @@
 			<v-col cols="4">
 				<v-text-field outlined label="Buscar" append-icon="mdi-magnify" hide-details class="elevation-0"></v-text-field>
 			</v-col>
-			<v-col align="end">
-				<v-btn @click="setShow(true)" dark large elevation="0" color="#2784FF">
-					<v-icon>
-						mdi-plus
-					</v-icon>
-					Nuevo Paciente
-				</v-btn>
-			</v-col>
 		</v-row>
 		<v-row>
 			<v-col>
 				<v-data-table
-					:headers="patients.headers"
-					:items="patients.items"
+					:headers="referrals.headers"
+					:items="referrals.items"
 					:items-per-page="5"
 					class="elevation-0"
 					hide-default-footer
 					:loading="loading"
 					loading-text=""
-					height="500"
 				>
 					<template v-slot:no-data>
 						<Animation :width="300" :height="300" :options="empty_animation"></Animation>
@@ -42,15 +33,10 @@
 							</span>
 						</div>
 					</template>
+
 				</v-data-table>
 			</v-col>
 		</v-row>
-
-		<Modal width="1000">
-			<template #content>
-				<FormAdd />
-			</template>
-		</Modal>
 	</div>
 </template>
 
@@ -64,21 +50,18 @@
 
 <script>
 
-	import { mapMutations, mapActions, mapState } from 'vuex'
-
-	import Modal from '@/components/modal/Modal'
-	import FormAdd from '@/components/patients/FormAdd'
+	import {mapState, mapActions} from 'vuex'
 
 	import Animation from '@/components/home/Animation'
 
 	export default {
 		components: {
-			Modal,
-			FormAdd,
 			Animation
 		},
-		data () {
-			return {
+		data(){
+			return{
+				headers: [],
+				items: [],
 				empty_animation: {
 					animationData: require('@/assets/animations/empty.json'),
 					loop: false
@@ -90,23 +73,18 @@
 			}
 		},
 		methods: {
-			...mapMutations({
-				setShow: 'modal/setShow'
-			}),
 			...mapActions({
-				fetchPatients: 'patients/fetchPatients'
+				fetchReferrals: 'referrals/fetchReferrals'
 			})
 		},
 		computed: {
 			...mapState({
-				loading: state => state.patients.loading,
-				patients: state => state.patients.patients
+				loading: state => state.referrals.loading,
+				referrals: state => state.referrals.referrals
 			})
 		},
 		mounted(){
-
-			this.fetchPatients()
-
+			this.fetchReferrals()
 		}
 	}
 </script>
