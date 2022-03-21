@@ -1,7 +1,7 @@
 <template>
-	<v-row no-gutters>
-		<v-col class="ma-0 pa-0 background">
-			<Ad />
+	<v-row no-gutters dense>
+		<v-col class="background ma-0 pa-0">
+			<Ad animation_name="lock.json" />
 		</v-col>
 		<v-col>
 			<Form />
@@ -9,7 +9,7 @@
 	</v-row>
 </template>
 
-<style scoped>
+<style>
 	.background{
 		background: linear-gradient(-45deg, #8AEDF6, #60A2F5, #8AEDF6, #60A2F5);
 		background-size: 400% 400%;
@@ -21,7 +21,7 @@
 <script>
 
 	import Ad from '@/components/login/Ad'
-	import Form from '@/components/login/Form'
+	import Form from '@/components/register/Form'
 
 	export default {
 		components: {

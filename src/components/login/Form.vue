@@ -36,7 +36,7 @@
 			<v-col class="text-center" cols="12">
 				<span class="font-weight-light">¿No tienes una cuenta?
 					<strong>
-						<v-btn color="#2784FF" text>
+						<v-btn :to="{name: 'register'}" color="#2784FF" text>
 							Registrate
 						</v-btn>
 					</strong>
