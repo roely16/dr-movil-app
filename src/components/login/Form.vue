@@ -10,10 +10,10 @@
 							</v-avatar>
 						</v-col>
 						<v-col class="text-center" cols="7">
-							<h1 class="font-weight-light">Bienvenido!</h1>
-							<span class="font-weight-light">
+							<h1 class="font-weight-light mb-4">Bienvenido!</h1>
+							<!-- <span class="font-weight-light">
 								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, reprehenderit.
-							</span>
+							</span> -->
 						</v-col>
 					</v-row>
 					<v-row justify="center">

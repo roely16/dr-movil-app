@@ -7,7 +7,8 @@ const namespaced = true
 const state = {
 	loading: false,
 	referrals: {},
-	genders: ['Masculino', 'Femenino']
+	genders: ['Masculino', 'Femenino'],
+	referral_detail: {}
 }
 
 const mutations = {
@@ -26,7 +27,8 @@ const mutations = {
 				edad: faker.datatype.number({min: 10, max: 50}),
 				sexo: faker.name.gender(true),
 				c_externa: faker.datatype.boolean(),
-				emergencia: faker.datatype.boolean()
+				emergencia: faker.datatype.boolean(),
+				direccion: faker.address.streetName() + ' ' + faker.address.streetAddress()
 			}
 	
 			state.referrals.items.push(item)
@@ -34,6 +36,9 @@ const mutations = {
 		}
 
 
+	},
+	setReferralDetail: (state, payload) => {
+		state.referral_detail = payload
 	}
 }
 

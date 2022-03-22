@@ -15,13 +15,13 @@
 
 		<v-spacer></v-spacer>
 
-		<v-btn x-large class="mr-4" icon>
+		<!-- <v-btn x-large class="mr-4" icon>
 			<v-icon>mdi-bell</v-icon>
-		</v-btn>
+		</v-btn> -->
 		<v-menu offset-y>
 			<template v-slot:activator="{ on, attrs }">
 				<v-avatar v-bind="attrs" v-on="on">
-					<v-img :src="require('@/assets/img/medical-care.png')"></v-img>
+					<v-img :src="require('@/assets/img/doctor_avatar.png')"></v-img>
 				</v-avatar>
 			</template>
 			<v-list>
