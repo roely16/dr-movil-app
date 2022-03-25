@@ -20,7 +20,7 @@
             </v-alert>
         </v-card-text>
         <v-card-text>
-            <v-btn @click="setShow({show: false})" color="primary" text>
+            <v-btn @click="hide()" color="primary" text>
                 ENTENDIDO
             </v-btn>
         </v-card-text>
@@ -47,7 +47,8 @@
         },
         methods: {
             ...mapMutations({
-                setShow: 'dialog/setShow'
+                setShow: 'dialog/setShow',
+                hide: 'dialog/hide'
             })
         },
         computed: {
