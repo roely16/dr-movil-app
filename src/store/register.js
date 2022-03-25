@@ -64,10 +64,13 @@ const actions = {
             
             commit('setFormData', response.data)
 
-        } catch (error) {
-        
-            console.log(error)
+            commit('setLoading', false)
 
+        } catch (error) {
+            
+            commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
+
+            commit('setLoading', false)
         }
     
 	},
@@ -79,12 +82,15 @@ const actions = {
 
             const response = await axios.post(process.env.VUE_APP_API_URL + 'register', state.new_user)
 
-            console.log(response.data)
+            commit('dialog/setShow', response.data, {root: true})
+
+            commit('setSending', false)
 
         } catch (error) {
+            
+            commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
 
-            console.log(error.response.statusText)
-
+            commit('setSending', false)
         }
 
     }

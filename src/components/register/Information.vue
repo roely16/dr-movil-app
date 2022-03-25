@@ -22,7 +22,7 @@
 		</v-row>
 		<v-row justify="center">
 			<v-col cols="8" class="mt-10">
-				<v-btn @click="registerNewUser()" color="#2784FF" dark large elevation="0" block>Registrarse</v-btn>
+				<v-btn :loading="sending" :disabled="sending" @click="registerNewUser()" color="#2784FF" :dark="!sending" large elevation="0" block>Registrarse</v-btn>
 			</v-col>
 			<v-col cols="8">
 				<v-btn @click="setStep(1)" large elevation="0" block>Regresar</v-btn>
@@ -65,7 +65,8 @@
 		},
 		computed: {
 			...mapState({
-				new_user: state => state.register.new_user
+				new_user: state => state.register.new_user,
+				sending: state => state.register.sending
 			})
 		}
 	}

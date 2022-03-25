@@ -2,17 +2,22 @@
 	<v-app>
 		<v-main>
 			<router-view/>
+			<Dialog />
 		</v-main>
 	</v-app>
 </template>
 
 <script>
 
-export default {
-	name: 'App',
+	import Dialog from '@/components/dialog/Dialog'
 
-	data: () => ({
-		//
-	}),
-};
+	export default {
+		name: 'App',
+		components: {
+			Dialog
+		},
+		data: () => ({
+			
+		}),
+	};
 </script>

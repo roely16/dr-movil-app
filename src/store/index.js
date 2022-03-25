@@ -7,6 +7,7 @@ import modal from './modal'
 import patients from './patients'
 import referrals from './referrals'
 import register from './register'
+import dialog from './dialog'
 
 export default new Vuex.Store({
 	state: {
@@ -19,6 +20,7 @@ export default new Vuex.Store({
 		modal: modal,
 		patients: patients,
 		referrals: referrals,
-		register: register
+		register: register,
+		dialog: dialog
 	}
 })
