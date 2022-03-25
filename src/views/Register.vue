@@ -27,6 +27,11 @@
 		components: {
 			Ad,
 			Form
+		},
+		data(){
+			return{
+				e1: null
+			}
 		}
 	}
 </script>

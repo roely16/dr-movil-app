@@ -1,7 +1,7 @@
 <template>
-	<v-row justify="center" align="center" class="container">
+	<v-row justify="center" align="center" class="pl-5 pr-5">
 		<v-col cols="12">
-			<v-row>
+			<v-row class="mt-4">
 				<v-col>
 					<v-btn @click="goBack()" color="#2784FF" text>
 						<v-icon left>
@@ -11,66 +11,91 @@
 					</v-btn>
 				</v-col>
 			</v-row>
-			<v-form>
-				<v-row class="mb-4" justify="center">
-					<v-col class="text-center" cols="7">
-						<v-avatar size="100" rounded="">
-							<v-img :src="require('@/assets/img/medicine.png')"></v-img>
-						</v-avatar>
-					</v-col>
-					<v-col class="text-center" cols="7">
-						<h1 class="font-weight-light">Regístrate ahora!</h1>
-					</v-col>
-				</v-row>	
-				<v-row justify="center">
-					<v-col cols="7">
-						<v-text-field type="text" append-icon="mdi-account-circle" hide-details label="Nombres" outlined class="rounded-md"></v-text-field>
-					</v-col>
-					<v-col cols="7">
-						<v-text-field type="text" append-icon="mdi-account-circle" hide-details label="Apellidos" outlined class="rounded-md"></v-text-field>
-					</v-col>
-					<v-col cols="7">
-						<v-text-field type="email" append-icon="mdi-at" hide-details label="Email" outlined class="rounded-md"></v-text-field>
-					</v-col>
-					<v-col cols="7">
-						<v-text-field type="phone" append-icon="mdi-cellphone" hide-details label="Teléfono" outlined class="rounded-md"></v-text-field>
-					</v-col>
-					<v-col cols="7">
-						<v-text-field type="password" append-icon="mdi-lock" hide-details label="Contraseña" outlined class="rounded-md"></v-text-field>
-					</v-col>
-					<v-col cols="7">
-						<v-text-field type="password" append-icon="mdi-lock" hide-details label="Repite la contraseña" outlined class="rounded-md"></v-text-field>
-					</v-col>
-				</v-row>
-				<v-row justify="center">
-					<v-col cols="7">
-						<v-btn @click="doLogin()" color="#2784FF" dark large elevation="0" block>Registrarse</v-btn>
-					</v-col>
-				</v-row>
-			</v-form>
+
+            <v-row justify="center">
+                <v-col class="text-center" cols="7">
+                    <v-avatar size="100" rounded="">
+                        <v-img :src="require('@/assets/img/medicine.png')"></v-img>
+                    </v-avatar>
+                </v-col>
+                <v-col class="text-center" cols="7">
+                    <h1 class="font-weight-light">Regístrate ahora!</h1>
+                </v-col>
+            </v-row>
+            <v-row justify="center">
+                <v-col cols="12">
+                    <v-stepper outlined v-model="step">
+                        <v-stepper-header class="elevation-0">
+                            <v-stepper-step
+                                :complete="step > 1"
+                                step="1"
+                            >
+                                Asignación de clínica
+                            </v-stepper-step>
+
+                            <v-divider></v-divider>
+
+                            <v-stepper-step
+                                :complete="step > 2"
+                                step="2"
+                            >
+                                Datos Personales
+                            </v-stepper-step>
+                        </v-stepper-header>
+                        <v-divider></v-divider>
+                        <v-stepper-items>
+                            <v-stepper-content step="1">
+                                <v-card min-height="450">
+                                    <v-card-text>
+                                        <Selection />
+                                    </v-card-text>
+                                </v-card>
+                            </v-stepper-content>
+                            <v-stepper-content step="2">
+                                <v-card min-height="450">
+                                    <v-card-text>
+                                        <Information />
+                                    </v-card-text>
+                                </v-card>
+                            </v-stepper-content>
+                        </v-stepper-items>
+                    </v-stepper>
+                </v-col>
+            </v-row>
 		</v-col>
 	</v-row>
 </template>
 
-<style scoped>
-
-	.container {
-		height: 100vh
-	}
-	.v-text-field--outlined >>> fieldset {
-		border-color: rgba(228, 227, 227, 0.986);
-		border-radius: 20px;
-		background-color: #F9FAFF;
-	}
-
-</style>
-
 <script>
+
+	import { mapActions, mapState } from 'vuex'
+
+	import Selection from '@/components/register/Selection'
+	import Information from '@/components/register/Information'
+
 	export default {
+		components: {
+			Selection,
+			Information
+		},
 		methods: {
+			...mapActions({
+				fetchData: 'register/fetchData'
+			}),
 			goBack(){
 				this.$router.back()
 			}
-		}
+		},
+        computed: {
+            ...mapState({
+                step: state => state.register.step,
+                new_user: state => state.register.new_user
+            })
+        },
+        mounted(){
+
+            this.fetchData()
+
+        }
 	}
 </script>
