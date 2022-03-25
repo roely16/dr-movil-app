@@ -39,7 +39,7 @@ const actions = {
 
 		} catch (error) {
 			
-			console.log(error)
+			commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
 
 		}
 
@@ -48,7 +48,13 @@ const actions = {
 
 		try {
 			
-			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_tabs_form')
+			const user = JSON.parse(localStorage.getItem('dr_movil'))
+
+			const data = {
+				rol_id: user.rol_id
+			}
+
+			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_tabs_form', data)
 
 			commit('setTabs', response.data)
 
