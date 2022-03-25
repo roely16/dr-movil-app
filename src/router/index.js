@@ -25,7 +25,7 @@ const routes = [
 		component: Home,
 		meta: {
 			goBack: false,
-			title: 'Bienvenido!'
+			title: 'Dr Móvil'
 		},
 		children: [
 			{

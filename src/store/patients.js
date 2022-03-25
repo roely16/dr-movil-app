@@ -4,7 +4,9 @@ const namespaced = true
 
 const state = {
 	patients: [],
-	loading: false
+	loading: false,
+	tabs: [],
+	tab: 0
 }
 
 const mutations = {
@@ -13,6 +15,12 @@ const mutations = {
 	},
 	setLoading: (state, payload) => {
 		state.loading = payload
+	}, 
+	setTabs: (state, payload) => {
+		state.tabs = payload
+	},
+	setTab: (state, payload) => {
+		state.tab = payload
 	}
 }
 
@@ -35,6 +43,23 @@ const actions = {
 
 		}
 
+	},
+	async fetchTabs({commit}){
+
+		try {
+			
+			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_tabs_form')
+
+			commit('setTabs', response.data)
+
+			commit('modal/setShow', true, {root: true})
+
+		} catch (error) {
+			
+            commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
+
+		}
+		
 	}
 
 }

@@ -15,9 +15,6 @@
 
 		<v-spacer></v-spacer>
 
-		<!-- <v-btn x-large class="mr-4" icon>
-			<v-icon>mdi-bell</v-icon>
-		</v-btn> -->
 		<v-menu offset-y>
 			<template v-slot:activator="{ on, attrs }">
 				<v-avatar v-bind="attrs" v-on="on">

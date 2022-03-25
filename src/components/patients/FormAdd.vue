@@ -17,26 +17,16 @@
 				<v-tab
 					v-for="(tab, i) in tabs"
 					:key="i"
+					:value="tab.nombre"
 				>
-					{{ tab.title }}
+					{{ tab.nombre }}
 				</v-tab>
 			</v-tabs>
 		</v-toolbar>
-		
 		<v-card-text style="height: 700px">
-
-			<v-tabs-items v-model="tab">
-				<v-tab-item
-					v-for="(item, key) in tabs"
-					:key="key"
-				>	
-					<keep-alive>
-						<component v-bind:is="item.component"></component>
-					</keep-alive>
-						
-				</v-tab-item>
-			</v-tabs-items>
-
+			<keep-alive>
+				<component v-bind:is="currentTab"></component>
+			</keep-alive>
 		</v-card-text>
 
 		<v-card-actions>
@@ -63,46 +53,43 @@
 
 <script>
 
-	import { mapMutations } from "vuex"
+	import { mapMutations, mapState } from "vuex"
 
 	import Header from '@/components/modal/Header'
-	import FormGeneral from '@/components/patients/FormGeneral'
-	import FormMedicalHistory from '@/components/patients/FormMedicalHistory'
-	import FormObstetric from '@/components/patients/FormObstetric'
-	import FormPhysicalExam from '@/components/patients/FormPhysicalExam'
 
 	export default {
 		components: {
 			Header
 		},
-		data(){
-			return{
-				tab: 0,
-				tabs: [
-					{
-						title: 'Datos Generales',
-						component: FormGeneral 
-					},
-					{
-						title: 'Antecendentes Médicos',
-						component: FormMedicalHistory
-					},
-					{
-						title: 'Antecedentes Gineco-Obstetricos',
-						component: FormObstetric
-
-					},
-					{
-						title: 'Examen Físico',
-						component: FormPhysicalExam
-					}
-				]
-			}
-		},
 		methods: {
 			...mapMutations({
-				setShow: 'modal/setShow'
+				setShow: 'modal/setShow',
+				setTab: 'patients/setTab'
 			})
+		},
+		computed: {
+			...mapState({
+				tabs: state => state.patients.tabs,
+			}),
+			tab: {
+				set(value){
+					this.setTab(value)
+				},
+				get(){
+					return this.$store.state.patients.tab
+				}
+			},
+			currentTab: function(){
+
+				const name = this.tabs[this.tab].componente
+
+				const AsyncComponent = () => ({
+					component: import('@/components/patients/' + name),				
+				})
+	
+				return AsyncComponent
+
+			}
 		}
 	}
 </script>
