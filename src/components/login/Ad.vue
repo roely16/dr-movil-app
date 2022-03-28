@@ -1,14 +1,20 @@
 <template>
 	<v-row style="min-height: 100vh" justify="center" align="center">
 		<v-col cols="12">
-			<lottie :options="options" :height="400" :width="400"/>
+			<!-- <lottie :options="options" :height="400" :width="400"/> -->
+			<v-img
+				contain
+				:src="require('@/assets/img/camion2.png')"
+			>
+
+			</v-img>
 		</v-col>
 	</v-row>
 </template>
 
 <script>
 
-	import Lottie from 'vue-lottie';
+	// import Lottie from 'vue-lottie';
 
 	export default {
 		props: {
@@ -18,7 +24,7 @@
 			}
 		},
 		components: {
-			'lottie': Lottie
+			// 'lottie': Lottie
 		},
 		data(){
 			return{

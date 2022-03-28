@@ -1,6 +1,6 @@
 <template>
 	<v-row no-gutters dense>
-		<v-col class="background ma-0 pa-0">
+		<v-col cols="6" class="ma-0 pa-0">
 			<Ad animation_name="lock.json" />
 		</v-col>
 		<v-col>

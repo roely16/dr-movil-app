@@ -15,18 +15,51 @@
 
 		<v-spacer></v-spacer>
 
+		<v-avatar size="100" class="mr-4" rounded>
+			<v-img
+				:src="require('@/assets/img/ave.png')"
+				
+				contain
+			>
+			</v-img>
+		</v-avatar>
+		<v-avatar size="60" class="mr-4" rounded>
+			<v-img
+				:src="require('@/assets/img/muni.png')"
+				
+				contain
+			>
+			</v-img>
+		</v-avatar>
+		<v-avatar size="80" class="mr-4" rounded>
+			<v-img
+				:src="require('@/assets/img/das.png')"
+				
+				contain
+			>
+			</v-img>
+		</v-avatar>
+		<v-avatar size="150" class="mr-4" rounded>
+			<v-img
+				:src="require('@/assets/img/gobierno.png')"
+				
+				contain
+			>
+			</v-img>
+		</v-avatar>
 		<v-menu offset-y>
 			<template v-slot:activator="{ on, attrs }">
 				<v-avatar v-bind="attrs" v-on="on">
-					<v-img :src="require('@/assets/img/doctor_avatar.png')"></v-img>
+					<v-img :src="require('@/assets/img/avatar.png')"></v-img>
 				</v-avatar>
 			</template>
 			<v-list>
 				<v-list-item
 					v-for="(item, index) in profile_menu"
 					:key="index"
+					:to="{name: 'login'}"
 				>
-					<v-list-item-title>{{ item.title }}</v-list-item-title>
+					<v-list-item-title >{{ item.title }}</v-list-item-title>
 				</v-list-item>
 			</v-list>
 		</v-menu>

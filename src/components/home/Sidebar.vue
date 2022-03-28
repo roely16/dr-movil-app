@@ -1,10 +1,14 @@
 <template>
-	<v-navigation-drawer permanent width="200" class="sidebar" color="#2784FF" dark app>
+	<v-navigation-drawer permanent width="200" class="sidebar" color="#77be00" dark app>
 		<v-row class="sidebar-container mt-4 mb-4 text-center">
 			<v-col>
-				<v-icon size="35">
-					mdi-medical-bag
-				</v-icon>
+				<v-avatar>
+					<v-img
+						:src="require('@/assets/img/avatar.png')"
+					>
+
+					</v-img>
+				</v-avatar>
 			</v-col>
 		</v-row>
 

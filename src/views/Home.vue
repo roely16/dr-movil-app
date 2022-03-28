@@ -13,7 +13,7 @@
 
 <style>
 	.home{
-		background-color: #F9FAFF;
+		/* background-color: #F9FAFF; */
 	}
 </style>
 

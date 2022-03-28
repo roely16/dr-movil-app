@@ -5,8 +5,8 @@
 				<v-form>
 					<v-row class="mb-4" justify="center">
 						<v-col class="text-center" cols="7">
-							<v-avatar size="100" rounded="">
-								<v-img :src="require('@/assets/img/medicine.png')"></v-img>
+							<v-avatar size="200" rounded="">
+								<v-img :src="require('@/assets/img/logo_dr_movil.png')"></v-img>
 							</v-avatar>
 						</v-col>
 						<v-col class="text-center" cols="7">

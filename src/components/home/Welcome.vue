@@ -1,20 +1,25 @@
 <template>
-	<div>
 		<v-row justify="center" align="center">
-			<v-col cols="12">
-				<lottie :options="options" :height="600" :width="600"/>
+			<v-col class="text-center" justify="center" align-self="center" cols="6">
+				<!-- <lottie :options="options" :height="600" :width="600"/> -->
+				<v-img
+					:src="require('@/assets/img/logo_dr_movil.png')"
+					contain
+					height="700"
+					width="700"
+				>
+				</v-img>
 			</v-col>
 		</v-row>
-	</div>
 </template>
 
 <script>
 
-	import Lottie from 'vue-lottie';
+	// import Lottie from 'vue-lottie';
 
 	export default {
 		components: {
-			'lottie': Lottie
+			// 'lottie': Lottie
 		},
 		data(){
 			return{

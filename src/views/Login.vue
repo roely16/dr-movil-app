@@ -1,6 +1,6 @@
 <template>
 	<v-row no-gutters>
-		<v-col class="ma-0 pa-0 background">
+		<v-col cols="6" class="ma-0 pa-0">
 			<Ad />
 		</v-col>
 		<v-col>
@@ -11,7 +11,7 @@
 
 <style scoped>
 	.background{
-		background: linear-gradient(-45deg, #8AEDF6, #60A2F5, #8AEDF6, #60A2F5);
+		background: linear-gradient(-45deg, #00599b, #60A2F5, #8AEDF6, #00599b);
 		background-size: 400% 400%;
 		animation: gradient 15s ease infinite;
 		min-height: 100vh;
