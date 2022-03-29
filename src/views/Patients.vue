@@ -43,12 +43,37 @@
 						</div>
 					</template>
 
-					<template v-slot:[`item.acciones`]>
-						<v-btn x-small icon>
+					<template v-slot:[`item.acciones`]="{item}">
+						<v-btn @click="fetchPatientDetail(item)" x-small icon>
 							<v-icon>
 								mdi-pencil
 							</v-icon>
 						</v-btn>
+					</template>
+
+					<template v-slot:[`item.emergencia`]="{item}">
+						<v-chip :color="item.emergencia ? 'error' : null" small label>
+							{{ item.emergencia ? 'SI' : 'NO' }}
+						</v-chip>
+					</template>
+
+					<template v-slot:[`item.consulta_externa`]="{item}">
+						<v-chip :color="item.consulta_externa ? 'primary' : null" small label>
+							{{ item.consulta_externa ? 'SI' : 'NO' }}
+						</v-chip>
+					</template>
+
+					<template v-slot:[`item.sexo`]="{item}">
+						<v-tooltip bottom>
+							<template v-slot:activator="{ on, attrs }">
+								<v-icon v-bind="attrs" v-on="on" size="30" :color="item.sexo == 'M' ? 'primary' : 'pink'">
+									{{ item.sexo == 'M' ? 'mdi-human-male' : 'mdi-human-female' }}
+								</v-icon>
+							</template>
+							<span>
+								{{ item.sexo == 'M' ? 'Masculino' : 'Femenino' }}
+							</span>
+						</v-tooltip>
 					</template>
 				</v-data-table>
 			</v-col>
@@ -64,7 +89,6 @@
 
 <style scoped>
 	.v-text-field--outlined >>> fieldset {
-		border-color: rgba(228, 227, 227, 0.986);
 		border-radius: 20px;
 		background-color: #fff;
 	}
@@ -103,7 +127,8 @@
 			}),
 			...mapActions({
 				fetchPatients: 'patients/fetchPatients',
-				fetchTabs: 'patients/fetchTabs'
+				fetchTabs: 'patients/fetchTabs',
+				fetchPatientDetail: 'patients/fetchPatientDetail'
 			})
 		},
 		computed: {

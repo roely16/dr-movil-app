@@ -9,12 +9,18 @@
 
 					</v-img>
 				</v-avatar>
-				<h5 class="white--text">
+				<h3 class="white--text">
 					{{ userInfo.nombres }} {{ userInfo.apellidos }} 
-				</h5>
-				<h6>
+				</h3>
+				<h4 class="white--text">
 					{{ userInfo.rol }}
-				</h6>
+				</h4>
+
+				<h5 class="white--text mt-4">
+					{{ userInfo.clinica }}
+					<br>
+					{{ userInfo.ubicacion }}
+				</h5>
 			</v-col>
 		</v-row>
 

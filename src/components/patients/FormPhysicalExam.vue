@@ -26,16 +26,16 @@
 		<v-divider class="mt-10 mb-10"></v-divider>
 		<v-row>
 			<v-col cols="6">
-				<v-textarea rows="4" no-resize label="Exámenes Realizados" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+				<v-textarea v-model="physical_exam.examenes_realizados" rows="4" no-resize label="Exámenes Realizados" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 			</v-col>
 			<v-col cols="6">
-				<v-textarea rows="4" no-resize label="Impresión Clinica" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+				<v-textarea v-model="physical_exam.impresion_clinica" rows="4" no-resize label="Impresión Clinica" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 			</v-col>
 			<v-col cols="6">
-				<v-textarea rows="4" no-resize label="Motivo de la Referencia" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+				<v-textarea v-model="physical_exam.motivo_referencia" rows="4" no-resize label="Motivo de la Referencia" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 			</v-col>
 			<v-col cols="6">
-				<v-textarea rows="4" no-resize label="Tratamiento y Manejo Efectuado en el servicio" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+				<v-textarea v-model="physical_exam.tratamiento_y_manejo" rows="4" no-resize label="Tratamiento y Manejo Efectuado en el servicio" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 			</v-col>
 		</v-row>
 	</div>
@@ -44,7 +44,6 @@
 <style scoped>
 
 	.v-text-field--outlined >>> fieldset {
-		border-color: rgba(228, 227, 227, 0.986);
 		border-radius: 20px;
 		background-color: #F9FAFF;
 	}

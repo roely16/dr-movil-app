@@ -50,6 +50,10 @@ const state = {
 		f_r: null,
 		t: null,
 		fcf: null,
+		examenes_realizados: null,
+		impresion_clinica: null,
+		motivo_referencia: null,
+		tratamiento_y_manejo: null,
 		paciente_id: null,
 		registrado_por: null		
 	},
@@ -75,6 +79,21 @@ const mutations = {
 	},
 	setPatientInfo: (state, payload) => {
 		state[payload.store] = payload.data
+	},
+	setPatientDetail: (state, payload) => {
+		state.patient = payload.patient
+
+		if (payload.medical_history) {
+			state.medical_history = payload.medical_history
+		}
+
+		if (payload.obstetric) {
+			state.obstetric = payload.obstetric
+		}
+
+		if (payload.physical_examen) {
+			state.physical_examen = payload.physical_examen
+		}
 	}
 }
 
@@ -84,9 +103,16 @@ const actions = {
 
 		try {
 			
+			const user = JSON.parse(localStorage.getItem('dr_movil'))
+
+			const data = {
+				ubicacion_id: user.ubicacion_id,
+				clinica_id: user.clinica_id
+			}
+
 			commit('setLoading', true)
 
-			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_patients')
+			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_patients', data)
 
 			commit('setPatients', response.data)
 			commit('setLoading', false)
@@ -121,12 +147,12 @@ const actions = {
 		}
 		
 	},
-	async registerPatient({commit, state}){
-
-		// commit('setSaving', true)
+	async registerPatient({commit, state, dispatch}){
 
 		try {
 			
+			commit('setSaving', true)
+
 			const tab = state.tabs[state.tab]
 
 			if (tab.accion == 'update') {
@@ -146,6 +172,13 @@ const actions = {
 			const user = JSON.parse(localStorage.getItem('dr_movil'))
 
 			state[tab.store].registrado_por = user.id
+
+			if (tab.accion == 'save') {
+				
+				state[tab.store].ubicacion_id = user.ubicacion_id
+
+			}
+			
 			state[tab.store].table = tab.tabla
 
 			const response = await axios.post(process.env.VUE_APP_API_URL + 'save_patient', state[tab.store])
@@ -154,12 +187,37 @@ const actions = {
 
 			commit('dialog/setShow', response.data, {root: true})
 
-			console.log(response.data)
+			commit('setSaving', false)
+
+			dispatch('fetchPatients')
 
 		} catch (error) {
 		
             commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
+
+			commit('setSaving', false)
 			
+		}
+
+	},
+	async fetchPatientDetail({commit, dispatch}, payload){
+
+		try {
+			
+			const data = {
+				id: payload.id
+			}
+
+			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_patient_detail', data)
+
+			commit('setPatientDetail', response.data)
+
+			dispatch('fetchTabs')
+
+		} catch (error) {
+			
+			commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
+
 		}
 
 	}
