@@ -75,6 +75,17 @@
 							</span>
 						</v-tooltip>
 					</template>
+
+					<template v-slot:[`item.servicio_salud`]="{item}">
+						<v-chip dark color="#77BE96" class="mt-2 mb-2 pt-2 pb-2 chip-multiline" label small>
+							<v-icon class="mr-2">
+								mdi-medical-bag
+							</v-icon>
+							<span :title="item.servicio_salud">
+								{{ item.servicio_salud }}
+							</span>
+						</v-chip>
+					</template>
 				</v-data-table>
 			</v-col>
 		</v-row>
@@ -91,6 +102,10 @@
 	.v-text-field--outlined >>> fieldset {
 		border-radius: 20px;
 		background-color: #fff;
+	}
+	.chip-multiline{
+		height: auto; 
+		white-space: normal
 	}
 </style>
 

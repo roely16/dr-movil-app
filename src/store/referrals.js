@@ -50,10 +50,16 @@ const actions = {
 
 			commit('setLoading', true)
 
-			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_referrals')
+			const user = JSON.parse(localStorage.getItem('dr_movil'))
+
+			const data = {
+				ubicacion_id: user.ubicacion_id,
+				clinica_id: user.clinica_id
+			}
+
+			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_referrals', data)
 
 			commit('setReferrals', response.data)
-			commit('setFakeData')
 			commit('setLoading', false)
 
 		} catch (error) {

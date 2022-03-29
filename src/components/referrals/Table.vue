@@ -28,15 +28,40 @@
 			</template>
 
 			<template v-slot:[`item.emergencia`]="{item}">
-				<v-chip small :color="item.emergencia ? 'error' : 'info'">
+				<v-chip :color="item.emergencia ? 'error' : null" small label>
 					{{ item.emergencia ? 'SI' : 'NO' }}
 				</v-chip>
 			</template>
 
-			<template v-slot:[`item.c_externa`]="{item}">
-				<v-chip small :color="item.emergencia ? 'error' : 'info'">
-					{{ item.emergencia ? 'SI' : 'NO' }}
+			<template v-slot:[`item.referido_desde`]="{item}">
+				<v-chip dark color="#77BE96" class="mt-2 mb-2 pt-2 pb-2 chip-multiline" label small>
+					<v-icon class="mr-2">
+						mdi-medical-bag
+					</v-icon>
+					{{ item.clinica }}
+					<br />
+					{{ item.ubicacion }}
 				</v-chip>
+			</template>
+
+
+			<template v-slot:[`item.consulta_externa`]="{item}">
+				<v-chip :color="item.consulta_externa ? 'primary' : null" small label>
+					{{ item.consulta_externa ? 'SI' : 'NO' }}
+				</v-chip>
+			</template>
+
+			<template v-slot:[`item.sexo`]="{item}">
+				<v-tooltip bottom>
+					<template v-slot:activator="{ on, attrs }">
+						<v-icon v-bind="attrs" v-on="on" size="30" :color="item.sexo == 'M' ? 'primary' : 'pink'">
+							{{ item.sexo == 'M' ? 'mdi-human-male' : 'mdi-human-female' }}
+						</v-icon>
+					</template>
+					<span>
+						{{ item.sexo == 'M' ? 'Masculino' : 'Femenino' }}
+					</span>
+				</v-tooltip>
 			</template>
 
 			<template v-slot:[`item.acciones`]="{item}">
@@ -56,6 +81,13 @@
 		</Modal>
 	</div>
 </template>
+
+<style scoped>
+	.chip-multiline{
+		height: auto; 
+		white-space: normal
+	}
+</style>
 
 <script>
 
