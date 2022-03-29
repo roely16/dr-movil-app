@@ -2,7 +2,7 @@
 	<div>
 		<v-row align="center">
 			<v-col cols="4">
-				<v-text-field outlined label="Buscar" append-icon="mdi-magnify" hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="search" outlined label="Buscar" append-icon="mdi-magnify" hide-details class="elevation-0"></v-text-field>
 			</v-col>
 		</v-row>
 		<v-row>
@@ -15,7 +15,6 @@
 
 <style scoped>
 	.v-text-field--outlined >>> fieldset {
-		border-color: rgba(228, 227, 227, 0.986);
 		border-radius: 20px;
 		background-color: #fff;
 	}
@@ -23,7 +22,7 @@
 
 <script>
 
-	import { mapActions} from 'vuex'
+	import { mapActions, mapMutations } from 'vuex'
 
 	import Table from '@/components/referrals/Table'
 
@@ -34,7 +33,20 @@
 		methods: {
 			...mapActions({
 				fetchReferrals: 'referrals/fetchReferrals'
+			}),
+			...mapMutations({
+				setSearch: 'referrals/setSearch'
 			})
+		},
+		computed: {
+			search: {
+				set(value){
+					this.setSearch(value)
+				},
+				get(){
+					return this.$store.state.referrals.search
+				}
+			}
 		},
 		mounted(){
 			this.fetchReferrals()

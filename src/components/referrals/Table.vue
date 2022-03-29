@@ -8,6 +8,7 @@
 			hide-default-footer
 			:loading="loading"
 			loading-text=""
+			:search="search"
 		>
 			<template v-slot:no-data>
 				<Animation :width="300" :height="300" :options="empty_animation"></Animation>
@@ -132,7 +133,8 @@
 		computed: {
 			...mapState({
 				loading: state => state.referrals.loading,
-				referrals: state => state.referrals.referrals
+				referrals: state => state.referrals.referrals,
+				search: state => state.referrals.search
 			})
 		}
 	}

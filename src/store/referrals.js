@@ -8,7 +8,8 @@ const state = {
 	loading: false,
 	referrals: {},
 	genders: ['Masculino', 'Femenino'],
-	referral_detail: {}
+	referral_detail: {},
+	search: null
 }
 
 const mutations = {
@@ -39,6 +40,9 @@ const mutations = {
 	},
 	setReferralDetail: (state, payload) => {
 		state.referral_detail = payload
+	},
+	setSearch: (state, payload) => {
+		state.search = payload
 	}
 }
 

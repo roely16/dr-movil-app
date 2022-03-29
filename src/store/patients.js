@@ -8,6 +8,7 @@ const state = {
 	tabs: [],
 	tab: 0,
 	health_services: [],
+	search: null,
 	patient: {
 		nombre: null,
 		telefono: null,
@@ -94,6 +95,9 @@ const mutations = {
 		if (payload.physical_examen) {
 			state.physical_examen = payload.physical_examen
 		}
+	},
+	setSearch: (state, payload) => {
+		state.search = payload
 	}
 }
 

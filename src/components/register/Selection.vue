@@ -33,7 +33,6 @@
 		height: 100vh
 	}
 	.v-text-field--outlined >>> fieldset {
-		border-color: rgba(228, 227, 227, 0.986);
 		border-radius: 20px;
 		background-color: #F9FAFF;
 	}

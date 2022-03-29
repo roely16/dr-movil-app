@@ -2,7 +2,7 @@
 	<div>
 		<v-row align="center">
 			<v-col cols="4">
-				<v-text-field outlined label="Buscar" append-icon="mdi-magnify" hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="search" outlined label="Buscar" append-icon="mdi-magnify" hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col align="end">
 				<v-btn @click="fetchTabs()" dark large elevation="0" color="#77be00">
@@ -24,6 +24,7 @@
 					:loading="loading"
 					loading-text=""
 					height="500"
+					:search="search"
 				>
 					<template v-slot:no-data>
 						<Animation :width="300" :height="300" :options="empty_animation"></Animation>
@@ -138,7 +139,8 @@
 		},
 		methods: {
 			...mapMutations({
-				setShow: 'modal/setShow'
+				setShow: 'modal/setShow',
+				setSearch: 'patients/setSearch'
 			}),
 			...mapActions({
 				fetchPatients: 'patients/fetchPatients',
@@ -149,8 +151,16 @@
 		computed: {
 			...mapState({
 				loading: state => state.patients.loading,
-				patients: state => state.patients.patients
-			})
+				patients: state => state.patients.patients,
+			}),
+			search: {
+				set(value){
+					this.setSearch(value)
+				},
+				get(){
+					return this.$store.state.patients.search
+				}
+			}
 		},
 		mounted(){
 
