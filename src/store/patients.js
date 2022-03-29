@@ -98,6 +98,19 @@ const mutations = {
 	},
 	setSearch: (state, payload) => {
 		state.search = payload
+	},
+	resetPatient: (state) => {
+
+		const parts = ['patient', 'medical_history', 'obstetric', 'physical_exam'];
+
+		parts.forEach(part => {
+			
+			Object.keys(state[part]).forEach(key => {
+				state[part][key] = null;
+			});
+			
+		});
+
 	}
 }
 
@@ -128,10 +141,16 @@ const actions = {
 		}
 
 	},
-	async fetchTabs({commit}){
+	async fetchTabs({commit}, payload){
 
 		try {
 			
+			if (payload.new) {
+
+				commit('resetPatient')
+
+			}
+
 			const user = JSON.parse(localStorage.getItem('dr_movil'))
 
 			const data = {
@@ -216,13 +235,29 @@ const actions = {
 
 			commit('setPatientDetail', response.data)
 
-			dispatch('fetchTabs')
+			dispatch('fetchTabs', {new: false})
 
 		} catch (error) {
 			
 			commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
 
 		}
+
+	}
+	
+}
+
+const getters = {
+
+	editable(state){
+
+		if (state.tabs[state.tab].editable) {
+			
+			return true
+
+		}
+
+		return false
 
 	}
 
@@ -232,5 +267,6 @@ export default {
 	namespaced,
 	state,
 	mutations,
-	actions
+	actions,
+	getters
 }

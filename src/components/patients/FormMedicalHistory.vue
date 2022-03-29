@@ -1,19 +1,19 @@
 <template>
 	<v-row style="background-color: white" class="mt-2">
 		<v-col cols="6">
-			<v-textarea v-model="medical_history.medicos" no-resize rows="4" label="Médicos" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+			<v-textarea :readonly="!editable" v-model="medical_history.medicos" no-resize rows="4" label="Médicos" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 		</v-col>
 		<v-col cols="6">
-			<v-textarea v-model="medical_history.mentales" no-resize rows="4" label="Mentales" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+			<v-textarea :readonly="!editable" v-model="medical_history.mentales" no-resize rows="4" label="Mentales" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 		</v-col>
 		<v-col cols="6">
-			<v-textarea v-model="medical_history.quirurgicos" no-resize rows="4" label="Quirúrgicos" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+			<v-textarea :readonly="!editable" v-model="medical_history.quirurgicos" no-resize rows="4" label="Quirúrgicos" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 		</v-col>
 		<v-col cols="6">
-			<v-textarea v-model="medical_history.traumaticos" no-resize rows="4" label="Traumáticos" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
+			<v-textarea :readonly="!editable" v-model="medical_history.traumaticos" no-resize rows="4" label="Traumáticos" outlined counter maxlength="4000" class="elevation-0"></v-textarea>
 		</v-col>
 		<v-col cols="6">
-			<v-textarea v-model="medical_history.alergicos" no-resize rows="4" counter maxlength="4000" label="Alérgicos" outlined class="elevation-0"></v-textarea>
+			<v-textarea :readonly="!editable" v-model="medical_history.alergicos" no-resize rows="4" counter maxlength="4000" label="Alérgicos" outlined class="elevation-0"></v-textarea>
 		</v-col>
 	</v-row>
 </template>

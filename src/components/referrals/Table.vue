@@ -66,7 +66,7 @@
 			</template>
 
 			<template v-slot:[`item.acciones`]="{item}">
-				<v-btn @click="showDetail(item)" small icon color="blue-grey darken-1">
+				<v-btn @click="fetchPatientDetail(item)" small icon color="blue-grey darken-1">
 					<v-icon>
 						mdi-badge-account-horizontal
 					</v-icon>
@@ -92,11 +92,11 @@
 
 <script>
 
-	import { mapState, mapMutations } from "vuex"
+	import { mapState, mapMutations, mapActions } from "vuex"
 
 	import Animation from '@/components/home/Animation'
 	import Modal from '@/components/modal/Modal'
-	import Form from '@/components/referrals/Form'
+	import Form from '@/components/patients/FormAdd'
 
 	export default {
 		components: {
@@ -121,14 +121,9 @@
 				setShow: 'modal/setShow',
 				setReferralDetail: 'referrals/setReferralDetail'
 			}),
-			showDetail(item){
-
-				console.log(item)
-
-				this.setReferralDetail(item)
-				this.setShow(true)
-
-			}
+			...mapActions({
+				fetchPatientDetail: 'patients/fetchPatientDetail'
+			})
 		},
 		computed: {
 			...mapState({

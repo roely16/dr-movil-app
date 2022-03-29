@@ -5,7 +5,7 @@
 				<v-text-field v-model="search" outlined label="Buscar" append-icon="mdi-magnify" hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col align="end">
-				<v-btn @click="fetchTabs()" dark large elevation="0" color="#77be00">
+				<v-btn @click="fetchTabs({new: true})" dark large elevation="0" color="#77be00">
 					<v-icon>
 						mdi-plus
 					</v-icon>

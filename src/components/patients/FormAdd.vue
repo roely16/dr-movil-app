@@ -30,7 +30,7 @@
 			<v-card-actions>
 				<v-row dense>
 					<v-col>
-						<v-btn :disabled="saving" :loading="saving" type="submit" class="mr-4" elevation="0" large :dark="!saving" color="#2784FF">
+						<v-btn v-if="editable" :disabled="saving" :loading="saving" type="submit" class="mr-4" elevation="0" large :dark="!saving" color="#2784FF">
 							Guardar
 						</v-btn>
 						<v-btn :disabled="saving" @click="setShow(false)" elevation="0" large color="grey lighten-2">
@@ -52,7 +52,7 @@
 
 <script>
 
-	import { mapMutations, mapState, mapActions } from "vuex"
+	import { mapMutations, mapState, mapActions, mapGetters } from "vuex"
 
 	import Header from '@/components/modal/Header'
 
@@ -87,7 +87,10 @@
 		computed: {
 			...mapState({
 				tabs: state => state.patients.tabs,
-				saving: state => state.patients.saving
+				saving: state => state.patients.saving,
+			}),
+			...mapGetters({
+				editable: 'patients/editable'
 			}),
 			tab: {
 				set(value){
