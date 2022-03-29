@@ -26,7 +26,6 @@
 		<v-avatar size="60" class="mr-4" rounded>
 			<v-img
 				:src="require('@/assets/img/muni.png')"
-				
 				contain
 			>
 			</v-img>
@@ -34,7 +33,6 @@
 		<v-avatar size="80" class="mr-4" rounded>
 			<v-img
 				:src="require('@/assets/img/das.png')"
-				
 				contain
 			>
 			</v-img>
@@ -42,7 +40,6 @@
 		<v-avatar size="150" class="mr-4" rounded>
 			<v-img
 				:src="require('@/assets/img/gobierno.png')"
-				
 				contain
 			>
 			</v-img>
@@ -81,12 +78,13 @@
 		},
 		methods: {
 			goBack(){
-				this.$router.back()
+
+				this.$router.push(this.$route.meta.back_route)
 			}
 		},
 		computed: {
 			isGoBack: function(){
-				return this.$route.meta.goBack
+				return this.$route.meta.back_route
 			},
 			barTitle: function(){
 				return this.$route.meta.title

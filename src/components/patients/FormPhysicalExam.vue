@@ -2,25 +2,25 @@
 	<div>
 		<v-row style="background-color: white" class="mt-2">
 			<v-col cols="3">
-				<v-text-field type="number" label="Peso" outlined hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="physical_exam.peso" type="number" label="Peso" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col cols="3">
-				<v-text-field type="number" label="Talla" outlined hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="physical_exam.talla" type="number" label="Talla" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col cols="3">
-				<v-text-field type="number" label="Pulso" outlined hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="physical_exam.pulso" type="number" label="Pulso" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col cols="3">
-				<v-text-field type="number" label="P/A" outlined hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="physical_exam.p_a" type="number" label="P/A" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col cols="3">
-				<v-text-field type="number" label="F/R" outlined hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="physical_exam.f_r" type="number" label="F/R" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col cols="3">
-				<v-text-field type="number" label="T" outlined hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="physical_exam.t" type="number" label="T" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			<v-col cols="3">
-				<v-text-field type="number" label="FCF" outlined hide-details class="elevation-0"></v-text-field>
+				<v-text-field v-model="physical_exam.fcf" type="number" label="FCF" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 		</v-row>
 		<v-divider class="mt-10 mb-10"></v-divider>
@@ -53,7 +53,13 @@
 
 
 <script>
-	export default {
+	import { mapState } from 'vuex'
 
+	export default {
+		computed: {
+			...mapState({
+				physical_exam: state => state.patients.physical_exam
+			})
+		}
 	}
 </script>

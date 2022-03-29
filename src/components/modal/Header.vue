@@ -1,7 +1,7 @@
 <template>
 
 	<v-app-bar
-		color="#2784FF"
+		color="#77be00"
 		dark
 		elevation="0"
 	>	

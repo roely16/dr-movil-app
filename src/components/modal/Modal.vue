@@ -7,6 +7,8 @@
 			@keydown.esc="setShow(false)"
 			:fullscreen="fullscreen"
 			scrollable
+			hide-overlay
+			transition="dialog-bottom-transition"
 		>
 			<slot name="content"></slot>
 		</v-dialog>

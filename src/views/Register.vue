@@ -1,6 +1,6 @@
 <template>
 	<v-row no-gutters dense>
-		<v-col cols="6" class="ma-0 pa-0">
+		<v-col cols="6" class="ma-0 pa-0 background">
 			<Ad animation_name="lock.json" />
 		</v-col>
 		<v-col>
@@ -11,9 +11,7 @@
 
 <style>
 	.background{
-		background: linear-gradient(-45deg, #8AEDF6, #60A2F5, #8AEDF6, #60A2F5);
-		background-size: 400% 400%;
-		animation: gradient 15s ease infinite;
+		background-color: rgb(166 211 65);
 		min-height: 100vh;
 	}
 </style>

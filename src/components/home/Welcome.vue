@@ -5,8 +5,8 @@
 				<v-img
 					:src="require('@/assets/img/logo_dr_movil.png')"
 					contain
-					height="700"
-					width="700"
+					height="600"
+					width="600"
 				>
 				</v-img>
 			</v-col>

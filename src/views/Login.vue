@@ -1,6 +1,6 @@
 <template>
 	<v-row no-gutters>
-		<v-col cols="6" class="ma-0 pa-0">
+		<v-col cols="6" class="ma-0 pa-0 background_login">
 			<Ad />
 		</v-col>
 		<v-col>
@@ -10,10 +10,8 @@
 </template>
 
 <style scoped>
-	.background{
-		background: linear-gradient(-45deg, #00599b, #60A2F5, #8AEDF6, #00599b);
-		background-size: 400% 400%;
-		animation: gradient 15s ease infinite;
+	.background_login{
+		background-color: rgb(166 211 65);
 		min-height: 100vh;
 	}
 </style>

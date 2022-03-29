@@ -25,7 +25,7 @@ const routes = [
 		component: Home,
 		meta: {
 			goBack: false,
-			title: 'Dr Móvil'
+			title: null
 		},
 		children: [
 			{
@@ -33,7 +33,7 @@ const routes = [
 				name: 'patients',
 				component: Patients,
 				meta: {
-					goBack: true,
+					back_route: '/home',
 					title: 'Lista de Pacientes'
 				}
 			},
@@ -42,7 +42,7 @@ const routes = [
 				name: 'referrals',
 				component: Referrals,
 				meta: {
-					goBack: true,
+					back_route: '/home',
 					title: 'Referidos'
 				}
 			}
