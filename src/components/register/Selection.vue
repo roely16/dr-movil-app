@@ -20,7 +20,10 @@
 		</v-row>
 		<v-row justify="center">
 			<v-col cols="8">
-				<v-btn :disabled="!new_user.clinica_id || !new_user.rol_id" @click="setStep(2)" dark color="#2784FF" large elevation="0" block>Continuar</v-btn>
+				<v-btn :disabled="!new_user.clinica_id || !new_user.rol_id" @click="setStep(3)" dark color="#2784FF" large elevation="0" block>Continuar</v-btn>
+			</v-col>
+			<v-col cols="8">
+				<v-btn @click="setStep(1)" large elevation="0" block>Regresar</v-btn>
 			</v-col>
 		</v-row>
 	</div>

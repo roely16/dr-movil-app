@@ -5,12 +5,16 @@ import router from '../router/index'
 const namespaced = true
 
 const state = {
-    loading: false
+    loading: false,
+    sidebar: []
 }
 
 const mutations = {
     setLoading: (state, payload) => {
         state.loading = payload
+    },
+    setSideBar: (state, payload) => {
+        state.sidebar = payload
     }
 }
 
@@ -22,6 +26,8 @@ const actions = {
             const response = await axios.post(process.env.VUE_APP_API_URL + 'login', payload)
             
             localStorage.setItem('dr_movil', JSON.stringify(response.data.user))
+
+            commit('setSideBar', response.data.menu)
 
             router.push('home')
 

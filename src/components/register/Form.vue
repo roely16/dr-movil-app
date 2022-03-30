@@ -30,14 +30,21 @@
                                 :complete="step > 1"
                                 step="1"
                             >
+                                Tipo de Usuario
+                            </v-stepper-step>
+                            <v-divider></v-divider>
+                            <v-stepper-step
+                                :complete="step > 2"
+                                step="2"
+                            >
                                 Asignación de clínica
                             </v-stepper-step>
 
                             <v-divider></v-divider>
 
                             <v-stepper-step
-                                :complete="step > 2"
-                                step="2"
+                                :complete="step > 3"
+                                step="3"
                             >
                                 Datos Personales
                             </v-stepper-step>
@@ -47,11 +54,18 @@
                             <v-stepper-content step="1">
                                 <v-card min-height="450">
                                     <v-card-text>
-                                        <Selection />
+                                        <UserType />
                                     </v-card-text>
                                 </v-card>
                             </v-stepper-content>
                             <v-stepper-content step="2">
+                                <v-card min-height="450">
+                                    <v-card-text>
+                                        <Selection />
+                                    </v-card-text>
+                                </v-card>
+                            </v-stepper-content>
+                            <v-stepper-content step="3">
                                 <v-card min-height="450">
                                     <v-card-text>
                                         <Information />
@@ -70,13 +84,15 @@
 
 	import { mapActions, mapState } from 'vuex'
 
+    import UserType from '@/components/register/UserType'
 	import Selection from '@/components/register/Selection'
 	import Information from '@/components/register/Information'
 
 	export default {
 		components: {
 			Selection,
-			Information
+			Information,
+            UserType
 		},
 		methods: {
 			...mapActions({

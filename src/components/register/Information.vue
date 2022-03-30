@@ -25,7 +25,7 @@
 				<v-btn :loading="sending" :disabled="sending" @click="registerNewUser()" color="#2784FF" :dark="!sending" large elevation="0" block>Registrarse</v-btn>
 			</v-col>
 			<v-col cols="8">
-				<v-btn @click="setStep(1)" large elevation="0" block>Regresar</v-btn>
+				<v-btn @click="setStep(2)" large elevation="0" block>Regresar</v-btn>
 			</v-col>
 		</v-row>
 	</div>

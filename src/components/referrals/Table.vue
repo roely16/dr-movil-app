@@ -75,7 +75,7 @@
 
 		</v-data-table>
 
-		<Modal width="1000">
+		<Modal width="1400">
 			<template #content>
 				<Form></Form>
 			</template>

@@ -69,6 +69,9 @@
 </template>
 
 <script>
+
+	import { mapState } from "vuex"
+
 	export default {
 		data () {
 			return {
@@ -89,7 +92,10 @@
 				const user = JSON.parse(localStorage.getItem('dr_movil'))
 
 				return user
-			}
+			},
+			...mapState({
+				// sidebar: sta
+			})
 		}
 	}
 </script>

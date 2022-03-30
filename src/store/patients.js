@@ -58,6 +58,14 @@ const state = {
 		paciente_id: null,
 		registrado_por: null		
 	},
+	reference_sheet: {
+		resumen_evolucion: null,
+		tratamiento: null,
+		diagnostico: null,
+		recomendaciones: null,
+		paciente_id: null,
+		registrado_por: null
+	},
 	saving: false
 }
 
