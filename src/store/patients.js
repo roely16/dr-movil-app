@@ -103,6 +103,10 @@ const mutations = {
 		if (payload.physical_examen) {
 			state.physical_examen = payload.physical_examen
 		}
+
+		if (payload.reference_sheet) {
+			state.reference_sheet = payload.reference_sheet
+		}
 	},
 	setSearch: (state, payload) => {
 		state.search = payload
@@ -196,6 +200,8 @@ const actions = {
 				
 				commit('dialog/setShow', { type: 'info',  message: 'Debe registrar primero los datos generales del paciente.' }, {root: true})
 
+				commit('setSaving', false)
+
 				return
 
 			}
@@ -234,6 +240,8 @@ const actions = {
 	async fetchPatientDetail({commit, dispatch}, payload){
 
 		try {
+			
+			commit('resetPatient')
 			
 			const data = {
 				id: payload.id

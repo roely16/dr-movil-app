@@ -57,8 +57,7 @@ const actions = {
 			const user = JSON.parse(localStorage.getItem('dr_movil'))
 
 			const data = {
-				ubicacion_id: user.ubicacion_id,
-				clinica_id: user.clinica_id
+				servicio_salud_id: user.servicio_salud_id,
 			}
 
 			const response = await axios.post(process.env.VUE_APP_API_URL + 'get_referrals', data)

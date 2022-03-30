@@ -1,14 +1,25 @@
 <template>
 	<div>
 		<v-row justify="center" align="center" class="text-center">
-			<v-col cols="12">
+
+			<v-col v-if="type_user.clinica" cols="12">
 				<span class="overline">
 					Selecciona la clínica a la que perteneceras
 				</span>
 			</v-col>
-			<v-col cols="8">
+			<v-col v-if="type_user.clinica" cols="8">
 				<v-select v-model="new_user.clinica_id" hide-details :items="clinics" item-text="nombre" item-value="id" outlined></v-select>
 			</v-col>
+
+			<v-col v-if="type_user.servicio_salud" cols="12">
+				<span class="overline">
+					Selecciona el servicio de salud al que perteneces
+				</span>
+			</v-col>
+			<v-col v-if="type_user.servicio_salud" cols="8">
+				<v-select v-model="new_user.servicio_salud_id" hide-details :items="health_services" item-text="nombre" item-value="id" outlined></v-select>
+			</v-col>
+
 			<v-col cols="12">
 				<span class="overline">
 					Selecciona el puesto que desempeñaras
@@ -17,6 +28,7 @@
 			<v-col cols="8">
 				<v-select v-model="new_user.rol_id" :items="roles" item-text="nombre" item-value="id" outlined></v-select>
 			</v-col>
+
 		</v-row>
 		<v-row justify="center">
 			<v-col cols="8">
@@ -55,7 +67,9 @@
 			...mapState({
 				clinics: state => state.register.clinics,
 				roles: state => state.register.roles,
-				new_user: state => state.register.new_user
+				new_user: state => state.register.new_user,
+				type_user: state => state.register.type_user,
+				health_services: state => state.register.health_services
 			})
 		}
 	}

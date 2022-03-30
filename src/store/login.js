@@ -25,9 +25,11 @@ const actions = {
     
             const response = await axios.post(process.env.VUE_APP_API_URL + 'login', payload)
             
+            console.log(response.data)
+
             localStorage.setItem('dr_movil', JSON.stringify(response.data.user))
 
-            commit('setSideBar', response.data.menu)
+            commit('setSideBar', response.data.user.menu)
 
             router.push('home')
 

@@ -25,22 +25,21 @@
 		</v-row>
 
 		<v-divider></v-divider>
-
 		<v-list
 			nav
 		>
 			<v-list-item
-				v-for="item in options"
-				:key="item.title"
+				v-for="(item, key) in sidebar"
+				:key="key"
 				link
-				:to="item.to ? {name: item.to} : null"
+				:to="item.url ? {name: item.url} : null"
 			>
 				<v-list-item-icon >
-					<v-icon>{{ item.icon }}</v-icon>
+					<v-icon>{{ item.icono }}</v-icon>
 				</v-list-item-icon>
 
 				<v-list-item-content>
-					<v-list-item-title>{{ item.title }}</v-list-item-title>
+					<v-list-item-title>{{ item.nombre }}</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
 		</v-list>
@@ -70,8 +69,6 @@
 
 <script>
 
-	import { mapState } from "vuex"
-
 	export default {
 		data () {
 			return {
@@ -93,9 +90,11 @@
 
 				return user
 			},
-			...mapState({
-				// sidebar: sta
-			})
+			sidebar: function(){
+				const user = JSON.parse(localStorage.getItem('dr_movil'))
+
+				return user.menu
+			}
 		}
 	}
 </script>

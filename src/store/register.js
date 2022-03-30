@@ -9,6 +9,7 @@ const state = {
     new_user: {
         clinica_id: null,
         rol_id: null,
+        servicio_salud_id: null,
         nombres: null,
         apellidos: null,
         email: null,
@@ -18,8 +19,11 @@ const state = {
     },
     clinics: [],
     roles: [],
+    health_services: [],
     loading: false,
-    sending: false
+    sending: false,
+    types_user: [],
+    type_user: {}
 }
 
 const mutations = {
@@ -31,7 +35,8 @@ const mutations = {
     },
     setFormData: (state, payload) => {
         state.clinics = payload.clinicas
-        state.roles = payload.roles
+        state.roles = payload.roles,
+        state.health_services = payload.servicios_salud
     },
     setSending: (state, payload) => {
         state.sending = payload
@@ -47,20 +52,38 @@ const mutations = {
             password: '123456',
             repeat_password: '123456'
         }
+    },
+    setTypesUser: (state, payload) => {
+        state.types_user = payload
+    },
+    setTypeUser: (state, payload) => {
+        
+        state.types_user.forEach(type => {
+            type.select = false
+        });
+
+        payload.select = true
+
+        state.type_user = payload
+
     }
 }
 
 const actions = {
 
-	async fetchData({commit}){
+	async fetchData({commit, state}){
 
         try {
             
-            commit('setFakeUser')
+            // commit('setFakeUser')
 
             commit('setLoading', true)
 
-            const response = await axios.get(process.env.VUE_APP_API_URL + 'get_register_data')
+            const data = {
+                tipo_usuario_id: state.type_user.id
+            }
+
+            const response = await axios.post(process.env.VUE_APP_API_URL + 'get_register_data', data)
             
             commit('setFormData', response.data)
 
@@ -91,6 +114,21 @@ const actions = {
             commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
 
             commit('setSending', false)
+        }
+
+    },
+    async fetchTypesUser({commit}){
+
+        try {
+            
+            const response = await axios.post(process.env.VUE_APP_API_URL + 'get_types_user')
+
+            commit('setTypesUser', response.data)
+
+        } catch (error) {
+            
+            commit('dialog/setShow', error.response ? error.response.data : { type: 'error',  message: error.message }, {root: true})
+
         }
 
     }

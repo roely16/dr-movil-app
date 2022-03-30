@@ -82,7 +82,7 @@
 
 <script>
 
-	import { mapActions, mapState } from 'vuex'
+	import { mapState } from 'vuex'
 
     import UserType from '@/components/register/UserType'
 	import Selection from '@/components/register/Selection'
@@ -95,9 +95,6 @@
             UserType
 		},
 		methods: {
-			...mapActions({
-				fetchData: 'register/fetchData'
-			}),
 			goBack(){
 				this.$router.back()
 			}
@@ -108,10 +105,6 @@
                 new_user: state => state.register.new_user
             })
         },
-        mounted(){
-
-            this.fetchData()
-
-        }
+        
 	}
 </script>
