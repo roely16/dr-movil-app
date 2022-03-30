@@ -66,6 +66,11 @@ const mutations = {
 
         state.type_user = payload
 
+    },
+    backStepOne: (state) => {
+        state.new_user.clinica_id = null
+        state.new_user.rol_id = null
+        state.new_user.servicio_salud_id = null
     }
 }
 

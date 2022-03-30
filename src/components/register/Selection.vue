@@ -32,10 +32,10 @@
 		</v-row>
 		<v-row justify="center">
 			<v-col cols="8">
-				<v-btn :disabled="!new_user.clinica_id || !new_user.rol_id" @click="setStep(3)" dark color="#2784FF" large elevation="0" block>Continuar</v-btn>
+				<v-btn :disabled="(!new_user.clinica_id && !new_user.servicio_salud_id) || !new_user.rol_id" @click="setStep(3)" color="primary" large elevation="0" block>Continuar</v-btn>
 			</v-col>
 			<v-col cols="8">
-				<v-btn @click="setStep(1)" large elevation="0" block>Regresar</v-btn>
+				<v-btn @click="back()" large elevation="0" block>Regresar</v-btn>
 			</v-col>
 		</v-row>
 	</div>
@@ -60,8 +60,13 @@
 	export default {
 		methods: {
 			...mapMutations({
-				setStep: 'register/setStep'
-			})
+				setStep: 'register/setStep',
+				backStepOne: 'register/backStepOne'
+			}),
+			back(){
+				this.backStepOne()
+				this.setStep(1)
+			}
 		},
 		computed: {
 			...mapState({
