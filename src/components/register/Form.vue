@@ -82,7 +82,7 @@
 
 <script>
 
-	import { mapState } from 'vuex'
+	import { mapState, mapMutations } from 'vuex'
 
     import UserType from '@/components/register/UserType'
 	import Selection from '@/components/register/Selection'
@@ -97,7 +97,10 @@
 		methods: {
 			goBack(){
 				this.$router.back()
-			}
+			},
+            ...mapMutations({
+                resetNewUser: 'register/resetNewUser'
+            })
 		},
         computed: {
             ...mapState({
@@ -105,6 +108,9 @@
                 new_user: state => state.register.new_user
             })
         },
+        mounted(){
+            this.resetNewUser()
+        }
         
 	}
 </script>

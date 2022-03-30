@@ -71,6 +71,13 @@ const mutations = {
         state.new_user.clinica_id = null
         state.new_user.rol_id = null
         state.new_user.servicio_salud_id = null
+    },
+    resetNewUser: (state) => {
+        Object.keys(state.new_user).forEach(key => {
+            state.new_user[key] = null;
+        });
+        state.step = 1
+        state.type_user = {}
     }
 }
 
