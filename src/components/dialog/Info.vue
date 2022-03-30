@@ -30,7 +30,7 @@
             return{
                 animation: {
 					animationData: require('@/assets/animations/info.json'),
-					loop: false
+					loop: true
 				},
             }
         },

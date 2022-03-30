@@ -41,7 +41,7 @@
             return{
                 animation: {
 					animationData: require('@/assets/animations/error.json'),
-					loop: false
+					loop: true
 				},
             }
         },
