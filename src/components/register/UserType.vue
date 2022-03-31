@@ -27,7 +27,7 @@
 			</v-col>
 		</v-row>
 		<v-row justify="center">
-			<v-col cols="8">
+			<v-col cols="12" md="8" lg="8" xl="8">
 				<v-btn :disabled="!type_user.select" @click="continueStep()" color="primary" large elevation="0" block>Continuar</v-btn>
 			</v-col>
 		</v-row>

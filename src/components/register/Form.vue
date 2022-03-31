@@ -52,25 +52,13 @@
                         <v-divider></v-divider>
                         <v-stepper-items>
                             <v-stepper-content step="1">
-                                <v-card min-height="450">
-                                    <v-card-text>
-                                        <UserType />
-                                    </v-card-text>
-                                </v-card>
+                                <UserType />
                             </v-stepper-content>
                             <v-stepper-content step="2">
-                                <v-card min-height="450">
-                                    <v-card-text>
-                                        <Selection />
-                                    </v-card-text>
-                                </v-card>
+                                <Selection />
                             </v-stepper-content>
                             <v-stepper-content step="3">
-                                <v-card min-height="450">
-                                    <v-card-text>
-                                        <Information />
-                                    </v-card-text>
-                                </v-card>
+                                 <Information />
                             </v-stepper-content>
                         </v-stepper-items>
                     </v-stepper>

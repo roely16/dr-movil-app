@@ -1,6 +1,6 @@
 <template>
 	<v-row no-gutters dense>
-		<v-col cols="6" class="ma-0 pa-0 background">
+		<v-col v-show="$vuetify.breakpoint.lg || $vuetify.breakpoint.md || $vuetify.breakpoint.xl" cols="12" sm="12" md="6" lg="6" xl="6" class="ma-0 pa-0 background">
 			<Ad animation_name="lock.json" />
 		</v-col>
 		<v-col>
