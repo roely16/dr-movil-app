@@ -1,12 +1,12 @@
 <template>
 	<div>
 		<v-row align="center">
-			<v-col cols="4">
+			<v-col cols="12" md="4" lg="4" xl="4">
 				<v-text-field v-model="search" outlined label="Buscar" append-icon="mdi-magnify" hide-details class="elevation-0"></v-text-field>
 			</v-col>
 		</v-row>
 		<v-row>
-			<v-col>
+			<v-col cols="12">
 				<Table />
 			</v-col>
 		</v-row>

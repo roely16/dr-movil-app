@@ -1,5 +1,5 @@
 <template>
-	<v-navigation-drawer permanent width="200" class="sidebar" color="#77be00" dark app>
+	<v-navigation-drawer v-model="show_sidebar" :permanent="($vuetify.breakpoint.md || $vuetify.breakpoint.lg || $vuetify.breakpoint.xl) && !isMobile" :width="isMobile ? null : 200" class="sidebar" color="#77be00" dark app>
 		<v-row class="sidebar-container mt-4 mb-4 text-center">
 			<v-col>
 				<v-avatar size="80" class="mb-4">
@@ -69,19 +69,22 @@
 
 <script>
 
+	import { mapMutations } from "vuex"
+
 	export default {
 		data () {
 			return {
-				options: [
-					{ title: 'Pacientes', icon: 'mdi-clipboard', to: 'patients' },
-					{ title: 'Referidos', icon: 'mdi-account-group', to: 'referrals' },
-				],
 				bottom_options: [
 					{ title: 'Configuración', icon: 'mdi-cog' },
 					{ title: 'Acerca de', icon: 'mdi-information' },
 				],
 				right: null,
 			}
+		},
+		methods: {
+			...mapMutations({
+				setShowSidebar: 'home/setShowSidebar'
+			})
 		},
 		computed: {
 			userInfo: function(){
@@ -94,6 +97,22 @@
 				const user = JSON.parse(localStorage.getItem('dr_movil'))
 
 				return user.menu
+			},
+			show_sidebar: {
+				get(){
+					return this.$store.state.home.show_sidebar
+				},
+				set(value){
+					this.setShowSidebar(value)
+				}
+			},
+			isMobile: function(){
+
+				if (this.$vuetify.breakpoint.md || this.$vuetify.breakpoint.lg || this.$vuetify.breakpoint.xl) {
+					return false
+				}
+
+				return true
 			}
 		}
 	}

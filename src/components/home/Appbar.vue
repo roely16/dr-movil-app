@@ -1,5 +1,6 @@
 <template>
 	<v-app-bar height="100" color="#fff" elevation="0">
+		<v-app-bar-nav-icon @click.stop="setShowSidebar(!show_sidebar)" v-if="$vuetify.breakpoint.sm || $vuetify.breakpoint.xs"></v-app-bar-nav-icon>
 		<v-toolbar-title>
 			<v-btn @click="goBack()" v-if="isGoBack" small text>
 				<v-icon>
@@ -14,8 +15,8 @@
 		</v-toolbar-title>
 
 		<v-spacer></v-spacer>
-
-		<v-avatar size="100" class="mr-4" rounded>
+		
+		<v-avatar :size="mobile ? 50 : 100" class="mr-4" rounded>
 			<v-img
 				:src="require('@/assets/img/ave.png')"
 				
@@ -23,21 +24,21 @@
 			>
 			</v-img>
 		</v-avatar>
-		<v-avatar size="60" class="mr-4" rounded>
+		<v-avatar :size="mobile ? 30 : 60" class="mr-4" rounded>
 			<v-img
 				:src="require('@/assets/img/muni.png')"
 				contain
 			>
 			</v-img>
 		</v-avatar>
-		<v-avatar size="80" class="mr-4" rounded>
+		<v-avatar :size="mobile ? 40 : 80" class="mr-4" rounded>
 			<v-img
 				:src="require('@/assets/img/das.png')"
 				contain
 			>
 			</v-img>
 		</v-avatar>
-		<v-avatar size="150" class="mr-4" rounded>
+		<v-avatar :size="mobile ? 75 : 150" class="mr-4" rounded>
 			<v-img
 				:src="require('@/assets/img/gobierno.png')"
 				contain
@@ -65,6 +66,9 @@
 </template>
 
 <script>
+
+	import { mapMutations, mapState } from "vuex"
+
 	export default {
 		name: 'appbar',
 		data(){
@@ -80,7 +84,10 @@
 			goBack(){
 
 				this.$router.push(this.$route.meta.back_route)
-			}
+			},
+			...mapMutations({
+				setShowSidebar: 'home/setShowSidebar'
+			})
 		},
 		computed: {
 			isGoBack: function(){
@@ -88,7 +95,18 @@
 			},
 			barTitle: function(){
 				return this.$route.meta.title
-			}
+			},
+			mobile: function(){
+
+				if (this.$vuetify.breakpoint.md || this.$vuetify.breakpoint.lg || this.$vuetify.breakpoint.xl) {
+					return false
+				}
+
+				return true
+			},
+			...mapState({
+				show_sidebar: state => state.home.show_sidebar
+			})
 		}
 	}
 </script>
