@@ -1,25 +1,25 @@
 <template>
 	<div>
 		<v-row style="background-color: white" class="mt-2">
-			<v-col cols="3">
+			<v-col cols="6" md="3" lg="3" xl="3">
 				<v-text-field :readonly="!editable" v-model="obstetric.gestas" type="number" label="Gestas" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
-			<v-col cols="3">
+			<v-col cols="6" md="3" lg="3" xl="3">
 				<v-text-field :readonly="!editable" v-model="obstetric.partos" type="number" label="Partos" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
-			<v-col cols="3">
+			<v-col cols="6" md="3" lg="3" xl="3">
 				<v-text-field :readonly="!editable" v-model="obstetric.abortos" type="number" label="Abortos" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
-			<v-col cols="3">
+			<v-col cols="6" md="3" lg="3" xl="3">
 				<v-text-field :readonly="!editable" v-model="obstetric.hijos_vivos" type="number" label="Hijos Vivos" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
-			<v-col cols="3">
+			<v-col cols="6" md="3" lg="3" xl="3">
 				<v-text-field :readonly="!editable" v-model="obstetric.hijos_muertos" type="number" label="Hijos Muertos" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
-			<v-col cols="3">
+			<v-col cols="6" md="3" lg="3" xl="3">
 				<v-text-field :readonly="!editable" v-model="obstetric.fur" type="number" label="FUR" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
-			<v-col cols="3">
+			<v-col cols="6" md="3" lg="3" xl="3">
 				<v-text-field :readonly="!editable" v-model="obstetric.cstp" type="number" label="CSTP" outlined hide-details class="elevation-0"></v-text-field>
 			</v-col>
 			

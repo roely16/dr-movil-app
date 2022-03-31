@@ -11,6 +11,7 @@
 					dark
 					background-color="#77be00"
 					v-model="tab"
+					show-arrows
 				>
 					<v-tabs-slider color="white"></v-tabs-slider>
 
