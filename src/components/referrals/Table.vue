@@ -3,7 +3,6 @@
 		<v-data-table
 			:headers="referrals.headers"
 			:items="referrals.items"
-			:items-per-page="10"
 			class="elevation-0"
 			hide-default-footer
 			:loading="loading"
