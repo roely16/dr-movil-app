@@ -52,13 +52,16 @@
 
 
 <script>
-	import { mapState } from 'vuex'
+	import { mapState, mapGetters } from 'vuex'
 
 	export default {
 		computed: {
 			...mapState({
 				physical_exam: state => state.patients.physical_exam
-			})
+			}),
+			...mapGetters({
+				editable: 'patients/editable'
+			}),
 		}
 	}
 </script>

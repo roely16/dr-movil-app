@@ -45,13 +45,16 @@
 </style>
 
 <script>
-	import { mapState } from 'vuex'
+	import { mapState, mapGetters } from 'vuex'
 
 	export default {
 		computed: {
 			...mapState({
 				obstetric: state => state.patients.obstetric
-			})
+			}),
+			...mapGetters({
+				editable: 'patients/editable'
+			}),
 		}
 	}
 </script>

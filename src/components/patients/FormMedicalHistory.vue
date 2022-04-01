@@ -28,13 +28,16 @@
 
 <script>
 
-	import { mapState } from 'vuex'
+	import { mapState, mapGetters } from 'vuex'
 
 	export default {
 		computed: {
 			...mapState({
 				medical_history: state => state.patients.medical_history
-			})
+			}),
+			...mapGetters({
+				editable: 'patients/editable'
+			}),
 		}
 	}
 </script>

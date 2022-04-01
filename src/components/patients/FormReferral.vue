@@ -16,13 +16,16 @@
 </template>
 
 <script>
-	import { mapState } from 'vuex'
+	import { mapState, mapGetters } from 'vuex'
 
 	export default {
 		computed: {
 			...mapState({
 				reference_sheet: state => state.patients.reference_sheet
-			})
+			}),
+			...mapGetters({
+				editable: 'patients/editable'
+			}),
 		}
 	}
 </script>
