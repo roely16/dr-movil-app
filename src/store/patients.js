@@ -101,7 +101,7 @@ const mutations = {
 		}
 
 		if (payload.physical_examen) {
-			state.physical_examen = payload.physical_examen
+			state.physical_exam = payload.physical_examen
 		}
 
 		if (payload.reference_sheet) {

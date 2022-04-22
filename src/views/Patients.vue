@@ -18,6 +18,7 @@
 				<v-data-table
 					:headers="patients.headers"
 					:items="patients.items"
+					:items-per-page="9999"
 					class="elevation-0"
 					hide-default-footer
 					:loading="loading"
