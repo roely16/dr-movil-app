@@ -1,4 +1,6 @@
-# dr-movil-app
+# Aplicación Dr. Móvil 
+
+Aplicación desarrollada en apoyo a la Dirección de Área de Salud, en la ejecución del proyecto Dr. Móvil. 
 
 ## Project setup
 ```
